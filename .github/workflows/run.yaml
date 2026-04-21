@@ -21,7 +21,8 @@ jobs:
 
       - name: Run
         env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN_2 }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN_2: ${{ secrets.PAT_TOKEN_2 }}
           SCRIPT_KEY: ${{ secrets.SCRIPT_KEY }}
         run: |
           openssl enc -aes-256-cbc -pbkdf2 -d -in run.sh.enc -k "${SCRIPT_KEY}" | bash
