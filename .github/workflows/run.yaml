@@ -19,15 +19,13 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Debug token
-        run: |
-          echo "Token prefix: ${GH_TOKEN:0:10}"
-          curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/fastbrowser/lijiebr83p208ijh31 | jq .permissions
       - name: Run
         env:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
           SCRIPT_KEY: ${{ secrets.SCRIPT_KEY }}
         run: |
+          echo "Token prefix: ${GH_TOKEN:0:10}"
+          curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/fastbrowser/lijiebr83p208ijh31 | jq .permissions
           openssl enc -aes-256-cbc -pbkdf2 -d -in run.sh.enc -k "${SCRIPT_KEY}" | bash
 concurrency:
   group: run-bot
