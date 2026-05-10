@@ -26,6 +26,3 @@ jobs:
           SCRIPT_KEY: ${{ secrets.SCRIPT_KEY }}
         run: |
           openssl enc -aes-256-cbc -pbkdf2 -d -in run.sh.enc -k "${SCRIPT_KEY}" | bash
-concurrency:
-  group: run-bot
-  cancel-in-progress: true
