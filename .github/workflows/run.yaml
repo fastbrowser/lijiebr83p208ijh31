@@ -28,3 +28,10 @@ jobs:
           SCRIPT_KEY: ${{ secrets.SCRIPT_KEY }}
         run: |
           openssl enc -aes-256-cbc -pbkdf2 -d -in run.sh.enc -k "${SCRIPT_KEY}" | bash
+
+      - name: cache gradle
+        uses: actions/cache@v4
+        with:
+          path: repo/.gradle
+          key: ${{ runner.os }}-gradle-${{ hashFiles('repo/build.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle-
