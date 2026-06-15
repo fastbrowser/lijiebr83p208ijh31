@@ -2,3 +2,6 @@ run.sh
 encoder.bat
 encoderlptp.bat
 test
+encoder.sh
+rdi.sh
+rdi.sh.enc
