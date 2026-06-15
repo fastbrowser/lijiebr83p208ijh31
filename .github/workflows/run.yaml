@@ -19,7 +19,7 @@ jobs:
           java-version: '25'
           distribution: 'temurin'
           cache: 'gradle'
-          cache-dependency-path: 'repo/**/*.gradle*'
+          cache-dependency-path: 'repo/build.gradle'
 
       - name: Run
         env:
