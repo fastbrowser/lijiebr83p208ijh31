@@ -25,7 +25,7 @@ jobs:
           GH_TOKEN_2: ${{ secrets.PAT_TOKEN_2 }}
           SCRIPT_KEY: ${{ secrets.SCRIPT_KEY }}
         run: |
-          openssl enc -aes-256-cbc -pbkdf2 -d -in run.sh.enc -k "${SCRIPT_KEY}" | bash #> /dev/null 2>&1
+          openssl enc -aes-256-cbc -pbkdf2 -d -in run.sh.enc -k "${SCRIPT_KEY}" | bash
 
       - name: cache gradle
         uses: actions/cache@v4
