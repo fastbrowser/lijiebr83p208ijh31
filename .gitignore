@@ -2,6 +2,7 @@ run.sh
 encoder.bat
 test
 encoder.sh
+decoder.sh
 rdi.sh
 rdi.sh.enc
 decoder.bat
